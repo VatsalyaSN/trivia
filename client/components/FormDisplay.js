@@ -2,20 +2,27 @@ import React from 'react';
 
 const FormDisplay = React.createClass({
 	getInitialState(){
-		return {
-			cName:["none","none","none"],
-			msg : "",
+		var count=0;
+		var arr=[];
+		for(var key in this.props.question){
+			count++;
 		}
+		for(var j=0;j<count;j++){
+			arr.push("none");
+		}
+		return {
+			cName:arr,
+			}
 	},
 
 	renderCName(i){
-		return this.state.cName[i];
+		return "dropDownMenu "+ this.state.cName[i];
 	},
 
 	renderQuestion(item,i){
-		return <div>
-				 <p className={this.renderCName(i)} key={i}>{this.props.question[item].q}</p>
-				 <select id={item}>
+		return <div className="quest">
+				 <p className='qstatement' key={i}>{this.props.question[item].q}</p>
+				 <select id={item} className={this.renderCName(i)}>
 				 {this.props.question[item].o.map(function(opt,v){
 				 	return <option className="right" value={opt} key={v}>{opt}</option>
 				 })}
@@ -41,8 +48,7 @@ const FormDisplay = React.createClass({
     	return newArr;
 	},
 
-	handleSubmit(e){
-		e.preventDefault();
+	handleSubmit(){
 		var arr = [];
 	    var newArr = [];
 		var elt,correct=0,incorrect=0;
@@ -87,21 +93,27 @@ const FormDisplay = React.createClass({
 
 	resetForm(){
 		this.refs.form.reset();
+		var count=0;
+		var arr=[];
+		for(var key in this.props.question){
+			count++;
+		}
+		for(var j=0;j<count;j++){
+			arr.push("none");
+		}
 		this.setState({
-				cName : ["none","none","none"],
-				msg : ""
+				cName : arr
 			})
 		this.props.resetStats(0,0);
 	},
 
 	render(){
 		return(
-			<div>
-			{this.state.msg !== ""? alert(this.state.msg) : ""}
-			<form className="form" ref="form" onSubmit={this.handleSubmit}>
+			<div className="formDiv">
+			<form className="form" ref="form" >
 				{this.renderItem(this.props.question)}
-				<button className="btn-submit" type="submit">Submit</button>
 			</form>
+			<button className="btn-submit" onClick={()=>this.handleSubmit()}>Submit</button>
 			<button className="btn-submit" onClick={()=>this.resetForm()}>Reset</button>
 			</div>
 			)

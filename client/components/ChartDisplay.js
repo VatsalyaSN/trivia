@@ -17,8 +17,8 @@ const ChartDisplay = (props)=>{
     chartSeries = [
       {
         field: 'value',
-        name: 'Bar Chart',
-        color: '#ff7f0e'
+        name: 'Result',
+        color: '#c0c0c0',
       }
     ],
     x = function(d) {
@@ -30,7 +30,9 @@ const ChartDisplay = (props)=>{
     yTicks = [10];
 
 		return(
-			<BarChart className="barChart"
+			<div className="chartDiv">
+			<BarChart 
+				display ="inline"
 			      title= {title}
 			      data= {generalChartData}
 			      width= {width}
@@ -41,7 +43,9 @@ const ChartDisplay = (props)=>{
 			      xScale= {xScale}
 			      yTicks= {yTicks}
 			      yLabel = {yLabel}
-    		/>)
+    		/>
+    		</div>
+    		)
 }
 
 export default ChartDisplay;

@@ -8,6 +8,7 @@ const TriviaDisplay = React.createClass({
 		const {question,correct,incorrect,setStats,resetStats} = this.props;
 		return(
 			<div>
+			<p className="heading">Cricket Trivia</p>
 			<FormDisplay question={question} setStats={setStats} resetStats={resetStats}/>
 			<ChartDisplay correct={correct} incorrect={incorrect} />
 			</div>
