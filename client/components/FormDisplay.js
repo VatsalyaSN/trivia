@@ -45,7 +45,7 @@ const FormDisplay = React.createClass({
 		e.preventDefault();
 		var arr = [];
 	    var newArr = [];
-		var elt;
+		var elt,correct=0,incorrect=0;
 		var text=[];
 		for(var key in this.props.question){
 			arr.push(key)
@@ -69,15 +69,20 @@ const FormDisplay = React.createClass({
     		else if(this.props.question[arr[i]].a !== text[i])
     			{
     				newArr.push("wrong");
-
+    				incorrect++;
     			}
 
     		else
+    		{
     			newArr.push("none")
+    			correct++;
+    		}
+
     	}
 	    this.setState({
     			cName : newArr
     		})
+    	this.props.setStats(correct,incorrect);
 	},
 
 	resetForm(){
@@ -86,6 +91,7 @@ const FormDisplay = React.createClass({
 				cName : ["none","none","none"],
 				msg : ""
 			})
+		this.props.resetStats(0,0);
 	},
 
 	render(){

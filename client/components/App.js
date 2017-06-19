@@ -5,7 +5,9 @@ import Main from './Main';
 
 function mapStateToProps(state){
 	return{
-		question : state.question,
+		question : state.trivia.question,
+		correct : state.trivia.correct,
+		incorrect : state.trivia.incorrect
 	}
 }
 

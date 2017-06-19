@@ -5,11 +5,11 @@ import FormDisplay from './FormDisplay';
 
 const TriviaDisplay = React.createClass({
 	render(){
-		const {question} = this.props;
+		const {question,correct,incorrect,setStats,resetStats} = this.props;
 		return(
 			<div>
-			<FormDisplay question={question}/>
-			<ChartDisplay />
+			<FormDisplay question={question} setStats={setStats} resetStats={resetStats}/>
+			<ChartDisplay correct={correct} incorrect={incorrect} />
 			</div>
 			)
 	}

@@ -9,7 +9,11 @@ import question from './data/Data';
 
 
 const defaultState={
-	question
+	trivia : {
+		question : question,
+		correct : 0,
+		incorrect : 0
+	}
 }
 
 const store = createStore(rootReducer,defaultState,applyMiddleware(
