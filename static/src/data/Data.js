@@ -13,8 +13,7 @@ const question = {
 		"q":"3. Who has won the most number of cricket World Cups?",
 		"o":["select","Australia","India","Srilanka","England"],
 		"a":"Australia"
-	}
-	,
+	},
 	"4":{
 		"q":"4. Of the first seven World Cups, 1975 to 1999, which city has hosted the most numbers of finals?",
 		"o":["select","Capetown","London","Lahore","Melbourne"],
