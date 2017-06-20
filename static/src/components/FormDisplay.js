@@ -68,8 +68,7 @@ const FormDisplay = React.createClass({
 	    	console.log(text[i])
 	    	if(text[i] === "select")
     		{
-    			alert("Please answer all the questions")
-    			return;
+    			newArr.push("unanswered");
     		}
     		
     		else if(this.props.question[arr[i]].a !== text[i])
@@ -85,9 +84,26 @@ const FormDisplay = React.createClass({
     		}
 
     	}
+
 	    this.setState({
     			cName : newArr
     		})
+
+    	for(var i=0;i<newArr.length;i++){
+    		if(newArr[i] === "unanswered"){
+    			for(var j=0;j<newArr.length;j++){
+    				if(newArr[j] === "wrong")
+    				{
+    					newArr[j]= "none";
+    				}
+    			}
+    			this.setState({
+    			cName : newArr
+    		})
+    			alert("Please answer all the questions highlighted in blue");
+    			return ;
+    		}
+    	}
     	this.props.setStats(correct,incorrect);
 	},
 

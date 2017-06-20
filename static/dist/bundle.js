@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2968b92a6e0459e48566"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "509c447324a29298071d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10372,7 +10372,7 @@ exports = module.exports = __webpack_require__(222)();
 
 
 // module
-exports.push([module.i, ".formDiv {\n/*border:2px solid red;*/\n  width: 55%;\n  display: inline-block;\n  float: left;\n  height: 460px;\n  margin-top: 10px;\n}\n.form {\n  display: inline-block;\n  overflow-y: scroll;\n  width: 100%;\n  height: 100%;\n}\n.dropDownMenu {\n  width: 140px;\n  height: 27px;\n  padding-left: 10px;\n  margin-left: 25px;\n  background-color: #fff;\n  border-radius: 0.2em;\n}\n.quest {\n  border: 1px solid #c0c0c0;\n  margin: 0 3% 2.5% 3%;\n  height: 80px;\n  border-radius: 0.4em;\n}\n.qstatement {\n  background-color: #640729;\n  color: #fff;\n  border-radius: 0.4em 0.4em 0 0;\n  padding: 5px 10px;\n}\n.btn-submit {\n  margin-left: 15%;\n  width: 25%;\n  height: 30px;\n  font-weight: bold;\n  background-color: #c0c0c0;\n  border: none;\n  border-radius: 0.2em;\n  outline: none;\n  margin-top: 10px;\n}\n.chartDiv {\n  display: inline-block;\n/*border:1px solid green;*/\n  width: 45%;\n  overflow-x: hidden;\n  float: left;\n  margin-left: -15px;\n}\n.wrong {\n  border: 1px solid #f00;\n}\n.heading {\n  text-align: center;\n  font-size: 50px;\n}\n@media screen and (max-width: 1300px) {\n  .heading {\n    margin-top: 20px;\n  }\n  .formDiv {\n/*border:2px solid red;*/\n    width: 70%;\n    height: 500px;\n    margin-top: 30px;\n    margin-left: 15%;\n  }\n  .chartDiv {\n    display: block;\n/*border:1px solid green;*/\n    width: 55%;\n    margin-left: 15%;\n    margin-top: 20%;\n  }\n}\n", ""]);
+exports.push([module.i, ".formDiv {\n/*border:2px solid red;*/\n  width: 55%;\n  display: inline-block;\n  float: left;\n  height: 460px;\n  margin-top: 10px;\n}\n.form {\n  display: inline-block;\n  overflow-y: scroll;\n  width: 100%;\n  height: 100%;\n}\n.dropDownMenu {\n  width: 140px;\n  height: 27px;\n  padding-left: 10px;\n  margin-left: 25px;\n  background-color: #fff;\n  border-radius: 0.2em;\n}\n.quest {\n  border: 1px solid #c0c0c0;\n  margin: 0 3% 2.5% 3%;\n  height: 20%;\n  border-radius: 0.4em;\n}\n.qstatement {\n  background-color: #640729;\n  color: #fff;\n  border-radius: 0.4em 0.4em 0 0;\n  padding: 5px 10px;\n}\n.btn-submit {\n  margin-left: 15%;\n  width: 25%;\n  height: 30px;\n  font-weight: bold;\n  background-color: #c0c0c0;\n  border: none;\n  border-radius: 0.2em;\n  outline: none;\n  margin-top: 10px;\n}\n.unanswered {\n  background-color: #006dcc;\n  color: #fff;\n}\n.chartDiv {\n  display: inline-block;\n/*border:1px solid green;*/\n  width: 45%;\n  overflow-x: hidden;\n  float: left;\n  margin-left: -15px;\n}\n.wrong {\n  border: 1px solid #f00;\n}\n.heading {\n  text-align: center;\n  font-size: 50px;\n}\n@media screen and (max-width: 1300px) {\n  .heading {\n    margin-top: 20px;\n  }\n  .formDiv {\n/*border:2px solid red;*/\n    width: 70%;\n    height: 500px;\n    margin-top: 30px;\n    margin-left: 15%;\n  }\n  .chartDiv {\n    display: block;\n/*border:1px solid green;*/\n    width: 55%;\n    margin-left: 15%;\n    margin-top: 20%;\n  }\n}\n", ""]);
 
 // exports
 
@@ -34299,8 +34299,7 @@ var FormDisplay = _wrapComponent("_component")(_react3.default.createClass({
 		for (var i = 0; i < arr.length; i++) {
 			console.log(text[i]);
 			if (text[i] === "select") {
-				alert("Please answer all the questions");
-				return;
+				newArr.push("unanswered");
 			} else if (this.props.question[arr[i]].a !== text[i]) {
 				newArr.push("wrong");
 				incorrect++;
@@ -34309,9 +34308,25 @@ var FormDisplay = _wrapComponent("_component")(_react3.default.createClass({
 				correct++;
 			}
 		}
+
 		this.setState({
 			cName: newArr
 		});
+
+		for (var i = 0; i < newArr.length; i++) {
+			if (newArr[i] === "unanswered") {
+				for (var j = 0; j < newArr.length; j++) {
+					if (newArr[j] === "wrong") {
+						newArr[j] = "none";
+					}
+				}
+				this.setState({
+					cName: newArr
+				});
+				alert("Please answer all the questions highlighted in blue");
+				return;
+			}
+		}
 		this.props.setStats(correct, incorrect);
 	},
 	resetForm: function resetForm() {
