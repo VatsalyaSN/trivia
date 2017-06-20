@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "8e59c753d8da67047a98"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2968b92a6e0459e48566"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -34542,26 +34542,25 @@ var question = {
 		"o": ["select", "Australia", "India", "Srilanka", "England"],
 		"a": "Australia"
 	},
-
 	"4": {
-		"q": "4. Who has won the most number of cricket World Cups?",
-		"o": ["select", "Australia", "India", "Srilanka", "England"],
-		"a": "Australia"
+		"q": "4. Of the first seven World Cups, 1975 to 1999, which city has hosted the most numbers of finals?",
+		"o": ["select", "Capetown", "London", "Lahore", "Melbourne"],
+		"a": "London"
 	},
 	"5": {
-		"q": "5. Who has won the most number of cricket World Cups?",
-		"o": ["select", "Australia", "India", "Srilanka", "England"],
-		"a": "Australia"
+		"q": "5. Australian spinner Shane Warne passed a career milestone in this match. What was it?",
+		"o": ["select", "600 Wickets", "Most wickets taken at Old Trafford", "Highest bating score", "Longest playing test bowler"],
+		"a": "600 Wickets"
 	},
 	"6": {
-		"q": "6. Who has won the most number of cricket World Cups?",
-		"o": ["select", "Australia", "India", "Srilanka", "England"],
-		"a": "Australia"
+		"q": "6. In which Australian city is the Boxing Day Test played each year??",
+		"o": ["select", "Sydney", "Hobart", "Melbourne", "Brisbane"],
+		"a": "Melbourne"
 	},
 	"7": {
-		"q": "7. Who has won the most number of cricket World Cups?",
-		"o": ["select", "Australia", "India", "Srilanka", "England"],
-		"a": "Australia"
+		"q": "7. What sort of bowler was Shane Warne?",
+		"o": ["select", "Off Spinner", "Lawn bowler", "Leg spinner", "Medium pacer"],
+		"a": "Leg spinner"
 	}
 };
 
