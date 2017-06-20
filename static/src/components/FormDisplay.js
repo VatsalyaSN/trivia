@@ -131,6 +131,7 @@ const FormDisplay = React.createClass({
 			</form>
 			<button className="btn-submit" onClick={()=>this.handleSubmit()}>Submit</button>
 			<button className="btn-submit" onClick={()=>this.resetForm()}>Reset</button>
+			<p className="note">*Incorrect answers will be highlighted in red!</p>
 			</div>
 			)
 	}
