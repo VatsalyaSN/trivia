@@ -2,7 +2,7 @@ from flask import Flask, request,g, redirect, url_for, abort,render_template,jso
 
 from index import app, db
 from flask_login import LoginManager,current_user,AnonymousUserMixin,login_required,logout_user
-
+import httplib2
 
 
 
